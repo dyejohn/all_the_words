@@ -53,7 +53,7 @@ namespace AllWords
             while(input.ToLower() != "exit")
             {
                 Console.Write("search pattern:");
-                input = Console.ReadLine();
+                input = Console.ReadLine().ToLower();
                 (string choices,string pattern) = CleanInput(input);
 
                 if(choices == "*" && oldChoices.Length > 0)
@@ -189,7 +189,7 @@ namespace AllWords
 
             var splitInput = input.Split(separator);
 
-            return (splitInput[0], splitInput[1]);
+            return (splitInput[0], splitInput[1].Replace("-","_"));
         }
     }
 }
